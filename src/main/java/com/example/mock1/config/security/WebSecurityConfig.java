@@ -28,6 +28,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity//enable method annotation @PreAuhthorize,@PostAuhthorize
 public class WebSecurityConfig{
         //    @Bean
 //    public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
@@ -58,10 +59,10 @@ public class WebSecurityConfig{
     }
 
 
-//    @Bean
-//    public AuthenticationManager authenticationManager(
-//            AuthenticationConfiguration authenticationConfiguration) throws Exception {
-//        return authenticationConfiguration.getAuthenticationManager();
-//    }
+    @Bean
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 
 }

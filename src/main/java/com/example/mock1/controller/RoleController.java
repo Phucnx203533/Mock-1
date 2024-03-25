@@ -5,15 +5,16 @@ import com.example.mock1.service.RoleService;
 import com.example.mock1.utils.ERole;
 import com.example.mock1.utils.respone.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/role")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class RoleController {
 
     @Autowired
     private RoleService roleService;
-
 
     @PostMapping("/create")
     public CommonResult createRole(@RequestBody  RoleDto roleDto) {

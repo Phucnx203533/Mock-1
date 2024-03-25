@@ -52,7 +52,7 @@ public class UserDetailsImpl implements UserDetails {
         return employeeEntity.getEmail();
     }
 
-    public Date getLastLong(){
+    public Date getLastLogin(){
         return employeeEntity.getLastLogin();
     }
 

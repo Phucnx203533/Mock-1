@@ -9,6 +9,7 @@ import com.example.mock1.utils.respone.ResCode;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,13 +17,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/employee")
 @Slf4j
+@PreAuthorize("hasRole('ROLE_HRM')")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
-
     @PostMapping("/create")
+
     public CommonResult createEmployee(@RequestBody @Valid EmployeeDto employeeDto) {
         EmployeeDto result = employeeService.createEmployee(employeeDto);
         log.info("Employee created with id  {} ",result.getId());
