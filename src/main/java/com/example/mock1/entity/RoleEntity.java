@@ -26,6 +26,7 @@ public class RoleEntity extends BaseEntity{
 
     }
 
+
     public RoleEntity(ERole name) {
         this.name = name;
     }

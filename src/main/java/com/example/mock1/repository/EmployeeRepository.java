@@ -12,4 +12,6 @@ import java.util.UUID;
 public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer> {
 
 
+    EmployeeEntity findByAccount(String account);
+
 }

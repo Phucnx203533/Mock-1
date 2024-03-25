@@ -26,8 +26,20 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public RoleDto removeRole(ERole name) {
             RoleEntity roleEntity = roleRepository.findByName(name);
+            if (roleEntity == null) {
+                return null;
+            }
             roleRepository.delete(roleEntity);
 
         return RoleDto.fromRoleEntity(roleEntity);
+    }
+
+    @Override
+    public RoleDto findRoleByName(ERole name) {
+        RoleEntity roleEntity = roleRepository.findByName(name);
+        if (roleEntity == null) {
+            return null;
+        }
+        return RoleDto.fromRoleEntity(roleEntity) ;
     }
 }
