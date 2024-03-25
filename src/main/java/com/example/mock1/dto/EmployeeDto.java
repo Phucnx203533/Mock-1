@@ -40,13 +40,13 @@ public class EmployeeDto {
     @NotNull
     private ESex sex;
 
-    private Set<RoleEntity> roles = new HashSet<>();
+    private Set<RoleDto> roles = new HashSet<>();
 
-    public Set<RoleEntity> getRoles() {
+    public Set<RoleDto> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<RoleEntity> roles) {
+    public void setRoles(Set<RoleDto> roles) {
         this.roles = roles;
     }
 
@@ -128,6 +128,22 @@ public class EmployeeDto {
 
     public void setSex(ESex sex) {
         this.sex = sex;
+    }
+
+    public EmployeeDto() {
+    }
+
+    public EmployeeDto( String fullName, Date dateOfBirth,  String phoneNumber, String email,  String account, String password, String address,  EDepartment department, ESex sex,Set<RoleDto> roleDtos) {
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.account = account;
+        this.password = password;
+        this.address = address;
+        this.department = department;
+        this.sex = sex;
+        this.roles = roleDtos;
     }
 
     public static EmployeeEntity toEmployeeEntity(EmployeeDto employeeDto){

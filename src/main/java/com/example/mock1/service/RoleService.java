@@ -9,4 +9,7 @@ public interface RoleService {
     RoleDto createRole(RoleDto roleDto);
 
     RoleDto removeRole(ERole name);
+
+
+    RoleDto findRoleByName(ERole name);
 }

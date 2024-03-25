@@ -40,12 +40,27 @@ public class EmployeeEntity extends BaseEntity {
 
     private Date lastLogin;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roles = new HashSet<>();
 
+    public EmployeeEntity() {
+    }
+
+    public EmployeeEntity(String fullName, Date dateOfBirth, String phoneNumber, String email, String account, String password, String address, EDepartment department, ESex sex, Set<RoleEntity> roles) {
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.account = account;
+        this.password = password;
+        this.address = address;
+        this.department = department;
+        this.sex = sex;
+        this.roles = roles;
+    }
 
     public String getFullName() {
         return fullName;

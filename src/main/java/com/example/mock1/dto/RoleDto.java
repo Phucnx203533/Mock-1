@@ -5,6 +5,8 @@ import com.example.mock1.utils.ERole;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
 public class RoleDto {
@@ -28,6 +30,9 @@ public class RoleDto {
     public void setName(ERole name) {
         this.name = name;
     }
+
+
+
 
     public static RoleEntity toRoleEntity(RoleDto roleDto){
         RoleEntity roleEntity = new RoleEntity();
