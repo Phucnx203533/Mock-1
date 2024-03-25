@@ -7,6 +7,7 @@ import com.example.mock1.utils.respone.ResCode;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/ticket")
 @Slf4j
+@PreAuthorize("hasRole('ROLE_CPOAS')")
 public class TicketController {
     @Autowired
     private TicketService ticketService;

@@ -50,7 +50,13 @@ public class Mock1Application {
                                 "012312","xuanphuc@gmail.com",
                                 "admin","admin",
                                 "Hn", EDepartment.EMPLOYEE,
-                                ESex.MALE, Set.of(roleService.findRoleByName(ERole.ROLE_HRM))
+                                ESex.MALE,
+                                Set.of(
+                                        roleService.findRoleByName(ERole.ROLE_HRM),
+                                        roleService.findRoleByName(ERole.ROLE_ADMIN),
+                                        roleService.findRoleByName(ERole.ROLE_CPOAS)
+
+                                    )
                         ));
 
     }

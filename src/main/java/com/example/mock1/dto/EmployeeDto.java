@@ -13,6 +13,7 @@ import org.springframework.beans.BeanUtils;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class EmployeeDto {
 
@@ -149,12 +150,14 @@ public class EmployeeDto {
     public static EmployeeEntity toEmployeeEntity(EmployeeDto employeeDto){
         EmployeeEntity employeeEntity = new EmployeeEntity();
         BeanUtils.copyProperties(employeeDto,employeeEntity);
+        employeeEntity.setRoles(employeeDto.getRoles().stream().map(RoleDto::toRoleEntity).collect(Collectors.toSet()));
         return employeeEntity;
     }
 
     public static EmployeeDto fromEmployeeEntity(EmployeeEntity employeeEntity){
         EmployeeDto employeeDto = new EmployeeDto();
         BeanUtils.copyProperties(employeeEntity,employeeDto);
+        employeeDto.setRoles(employeeEntity.getRoles().stream().map(RoleDto::fromRoleEntity).collect(Collectors.toSet()));
         employeeDto.setPassword("");
         return employeeDto;
     }
