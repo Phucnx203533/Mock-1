@@ -46,6 +46,17 @@ public class EmployeeEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roles = new HashSet<>();
 
+    private String refeshToken;
+
+
+    public String getRefeshToken() {
+        return refeshToken;
+    }
+
+    public void setRefeshToken(String refeshToken) {
+        this.refeshToken = refeshToken;
+    }
+
     public EmployeeEntity() {
     }
 

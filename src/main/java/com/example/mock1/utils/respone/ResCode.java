@@ -7,6 +7,7 @@ public enum ResCode {
     AUTHEN_FAIL("003", "AUTHEN_FAIL"),
     UNAUTHENTICATED("004", "User không có quyền thực hiện tính năng này"),
     FUNCTION_NOT_EXISTS("005", "Tính năng chưa phát triển, vui lòng thử lại sau!"),
+    REFRESH_TOKEN_NOT_EXISTS("006","Refresh Token không hợp lệ. Vui lòng đăng nhập lại"),
     INVALID_DATA_API("400", "Dữ liệu gửi lên không hợp lệ"),
     PARAMETER_INVALID("401", "Tham số không hợp lệ"),
     RESOURCE_NOT_FOUND("404", "Không tìm thấy tài nguyên"),
